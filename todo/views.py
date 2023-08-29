@@ -29,3 +29,7 @@ def MarkEdit(request,pk):
             'data' : task_edit
         }
     return render(request,'edit.html',context)
+def Delete(request,pk):
+    mark_delete = get_object_or_404(Task,pk=pk)
+    mark_delete.delete()
+    return redirect('home')
